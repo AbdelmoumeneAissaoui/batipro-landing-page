@@ -22,17 +22,20 @@ export default function AppHeader() {
 
   const handleNavClick = (event: React.MouseEvent<HTMLAnchorElement>, to: string) => {
     event.preventDefault();
-    const targetRoute = to === '/' ? `/${language}` : `/${language}${to}`;
 
-    if (to.startsWith('#')) {
+    if (to === '/') {
+      router.push(`/${language}`);
+    } else if (to.startsWith('#')) {
       const targetElement = document.querySelector(to);
       if (targetElement) {
         targetElement.scrollIntoView({ behavior: 'smooth' });
       } else {
         router.push(`/${language}`);
       }
+    } else if (to.startsWith('/')) {
+      router.push(to);
     } else {
-      router.push(targetRoute);
+      router.push(`/${language}${to}`);
     }
 
     setIsMobileMenuOpen(false);
@@ -62,7 +65,7 @@ export default function AppHeader() {
           {/* Desktop Nav */}
           <nav className="hidden md:flex space-x-8">
             {t.navLinks.map((link, idx) => {
-              const href = link.to === '/' ? `/${language}` : `/${language}${link.to}`;
+              const href = link.to === '/' ? `/${language}` : link.to.startsWith('/') ? link.to : `/${language}${link.to}`;
               return (
                 <a
                   key={idx}
@@ -103,7 +106,7 @@ export default function AppHeader() {
         <div className="md:hidden bg-white border-t border-gray-200">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             {t.navLinks.map((link, idx) => {
-              const href = link.to === '/' ? `/${language}` : `/${language}${link.to}`;
+              const href = link.to === '/' ? `/${language}` : link.to.startsWith('/') ? link.to : `/${language}${link.to}`;
               return (
                 <a
                   key={idx}

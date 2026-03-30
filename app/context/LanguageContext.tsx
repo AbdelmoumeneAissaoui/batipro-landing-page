@@ -6,16 +6,16 @@ import { Language, LanguageContextType, Translation } from '@/lib/types';
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
-  const [language, setLanguage] = useState<Language>('fr');
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
+  const isBrowser = typeof window !== 'undefined';
+  const [language, setLanguage] = useState<Language>(() => {
+    if (!isBrowser) return 'fr';
     const savedLang = localStorage.getItem('app_lang') as Language;
     if (savedLang && (savedLang === 'fr' || savedLang === 'ar')) {
-      setLanguage(savedLang);
+      return savedLang;
     }
-  }, []);
+    return 'fr';
+  });
+  const [mounted, setMounted] = useState<boolean>(isBrowser);
 
   useEffect(() => {
     if (mounted) {

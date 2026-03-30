@@ -78,6 +78,7 @@ export interface Product {
   badge: string | null;
   rating: number;
   image: string;
+  categoryId?: number;
 }
 
 export interface Stat {

@@ -55,10 +55,10 @@ export const brandConfig: BrandConfig = {
         { id: 6, label: "Électricité", icon: "Zap", image: "https://picsum.photos/seed/electric/400/300", productIds: [] },
       ],
       featuredProducts: [
-        { id: 1, name: "Perceuse à percussion Pro 18V", price: "189.99€", badge: "Promo", rating: 4.8, image: "https://picsum.photos/seed/drill/400/400" },
-        { id: 2, name: "Carrelage Effet Marbre 60x60", price: "24.50€ / m²", badge: "Tendance", rating: 4.9, image: "https://picsum.photos/seed/marble/400/400" },
-        { id: 3, name: "Mitigeur Lavabo Design Noir", price: "85.00€", badge: null, rating: 4.5, image: "https://picsum.photos/seed/faucet/400/400" },
-        { id: 4, name: "Ciment Portland 35kg", price: "7.50€", badge: "Essentiel", rating: 4.7, image: "https://picsum.photos/seed/cement/400/400" },
+        { id: 1, name: "Perceuse à percussion Pro 18V", price: "189.99€", badge: "Promo", rating: 4.8, image: "https://picsum.photos/seed/drill/400/400", categoryId: 4 },
+        { id: 2, name: "Carrelage Effet Marbre 60x60", price: "24.50€ / m²", badge: "Tendance", rating: 4.9, image: "https://picsum.photos/seed/marble/400/400", categoryId: 3 },
+        { id: 3, name: "Mitigeur Lavabo Design Noir", price: "85.00€", badge: null, rating: 4.5, image: "https://picsum.photos/seed/faucet/400/400", categoryId: 2 },
+        { id: 4, name: "Ciment Portland 35kg", price: "7.50€", badge: "Essentiel", rating: 4.7, image: "https://picsum.photos/seed/cement/400/400", categoryId: 1 },
       ],
       stats: [
         { value: "15K+", label: "Professionnels nous font confiance" },
@@ -82,6 +82,7 @@ export const brandConfig: BrandConfig = {
         { label: "Catégories", to: "#categories" },
         { label: "Produits", to: "#products" },
         { label: "Contact", to: "#contact" },
+        { label: "Admin", to: "/admin" },
       ],
       footer: {
         copyright: "© 2026 BatiPro. Tous droits réservés.",
@@ -155,6 +156,7 @@ export const brandConfig: BrandConfig = {
         { label: "الأقسام", to: "#categories" },
         { label: "المنتجات", to: "#products" },
         { label: "اتصل بنا", to: "#contact" },
+        { label: "الإدارة", to: "/admin" },
       ],
       footer: {
         copyright: "© 2026 باتي برو. جميع الحقوق محفوظة.",
