@@ -1,6 +1,12 @@
 [
-  { "id": 1, "name": "Perceuse à percussion Pro 18V", "price": "189.99€", "badge": "Promo", "rating": 4.8, "image": "/images/drill-1.png", "categoryId": 4 },
-  { "id": 2, "name": "Carrelage Effet Marbre 60x60", "price": "24.50€ / m²", "badge": "Tendance", "rating": 4.9, "image": "/images/marble-1.png", "categoryId": 3 },
-  { "id": 3, "name": "Mitigeur Lavabo Design Noir", "price": "85.00€", "badge": null, "rating": 4.5, "image": "/images/faucet-1.png", "categoryId": 2 },
-  { "id": 4, "name": "Ciment Portland 35kg", "price": "7.50€", "badge": "Essentiel", "rating": 4.7, "image": "/images/cement-1.png", "categoryId": 1 }
+  {
+    "note": "⚠️ DEPRECATED - Ce fichier n'est plus utilisé",
+    "migration": "Tous les produits doivent être définis dans app/config/brand.ts",
+    "location": "app/config/brand.ts → i18n.fr.featuredProducts (et i18n.ar.featuredProducts)",
+    "documentation": [
+      "Voir TEMPLATE_GUIDE.md pour un guide complet",
+      "Voir ARCHITECTURE.md pour la structure des données",
+      "Les données sont maintenant centralisées pour une meilleure maintenabilité"
+    ]
+  }
 ]

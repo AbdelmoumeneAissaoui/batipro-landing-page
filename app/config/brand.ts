@@ -1,6 +1,40 @@
 import { BrandConfig } from '@/lib/types';
 
+/**
+ * 🎨 CONFIGURATION DE MARQUE CENTRALISSÉE
+ * 
+ * Ce fichier contient TOUTE la configuration et le contenu de votre landing page.
+ * Il est facilement adaptable pour différents projets :
+ * - Modifiez les couleurs dans la section `colors`
+ * - Changez le contenu textuel dans la section `i18n`
+ * - Activez/désactivez les sections via `sections`
+ * - Mettez à jour les infos de contact dans `contact`
+ * 
+ * GUIDE D'ADAPTATION : Voir TEMPLATE_GUIDE.md pour des instructions détaillées
+ */
+
 export const brandConfig: BrandConfig = {
+  // 📋 Métadonnées du site
+  siteMetadata: {
+    title: "BatiPro - Matériaux de construction & sanitaire",
+    description: "Découvrez la plus large sélection de matériaux de construction, sanitaire, céramique et équipements pour professionnels et particuliers.",
+    favicon: "/favicon.ico",
+    ogImage: "https://scontent.fcdg2-1.fna.fbcdn.net/v/t39.30808-6/492458367_122127116264772194_587359010015536324_n.jpg",
+    locale: "fr_FR",
+  },
+
+  // 📞 Informations de contact (utilisées partout dans le site)
+  contact: {
+    email: "contact@batipro.fr",
+    phone: "+33 1 23 45 67 89",
+    address: "123 Zone Industrielle",
+    city: "Paris",
+    country: "France",
+    zipCode: "75000",
+    hours: "Lun-Ven: 08:00-18:00 | Sam: 09:00-17:00",
+  },
+
+  // 🎨 Palette de couleurs
   colors: {
     primary: "#003CE8",
     secondary: "#1e293b",
@@ -10,6 +44,18 @@ export const brandConfig: BrandConfig = {
     textPrimary: "#0f172a",
     textMuted: "#0046a8",
   },
+  // 🎨 Palette de couleurs
+  colors: {
+    primary: "#003CE8",
+    secondary: "#1e293b",
+    accent: "#bd3b07",
+    dark: "#0f172a",
+    surface: "#ffffff",
+    textPrimary: "#0f172a",
+    textMuted: "#0046a8",
+  },
+
+  // 👁️ Sections à afficher/masquer
   sections: {
     showHero: true,
     showStats: true,
@@ -20,11 +66,14 @@ export const brandConfig: BrandConfig = {
     showNewsletterBanner: false,
     showFooter: true,
   },
+
+  // 🌍 Contenu multilingue - FRENCH
   i18n: {
     fr: {
       brand: {
         name: "Boukabes Céramique",
         tagline: "L'excellence pour vos chantiers et votre maison.",
+        logoImage: "/logo.png",
       },
       hero: {
         headline: "Construisez l'Avenir",
@@ -34,17 +83,29 @@ export const brandConfig: BrandConfig = {
         secondaryCtaLabel: "nous contacter",
         backgroundVideo: "/videos/video1.mp4",
         backgroundImage: "https://scontent.fcdg2-1.fna.fbcdn.net/v/t39.30808-6/492458367_122127116264772194_587359010015536324_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=1d70fc&_nc_ohc=xNsC5CH7M5cQ7kNvwHCQQDY&_nc_oc=AdknX5DQFeibZ4CEUugvrq2UbL_0CuepJvV-UEnCpq4aDw8FUfj50PVwScfHkO0gHa3P2etTMJ8NEOgfn6G0LFty&_nc_zt=23&_nc_ht=scontent.fcdg2-1.fna&_nc_gid=MXmC_qn4FIbjougkFxIPOg&_nc_ss=8&oh=00_Afzs8qQg5s4aAZqnv51B0c4b1XQAQ2ILzr3SlflatZIYlQ&oe=69BCED0C",
-
       },
       ui: {
         categoriesTitle: "Nos Rayons",
         productsTitle: "Produits à la Une",
-        productsLink: "Voir tout le catalogue \u2192",
+        productsLink: "Voir tout le catalogue →",
         partnersTitle: "Ils nous font confiance",
         teamTitle: "Notre Équipe à votre écoute",
         teamSubtitle: "Besoin d'un conseil technique ou d'un devis personnalisé ? Contactez directement nos experts.",
         quickLinks: "Liens Rapides",
         contactUs: "Contact",
+        legal: "Mentions Légales",
+        cgv: "Conditions Générales de Vente",
+        securePayment: "Paiement sécurisé",
+        fastDelivery: "Livraison 24-48h",
+      },
+      contact: {
+        title: "Contactez-nous",
+        description: "Notre équipe est à votre disposition pour répondre à vos questions et vous conseiller.",
+        formPlaceholder: {
+          name: "Votre nom",
+          email: "Votre email",
+          message: "Votre message",
+        },
       },
       categories: [
         { id: 1, label: "Gros Œuvre & Matériaux", icon: "BrickWall", image: "https://picsum.photos/seed/bricks/400/300", productIds: [4] },
@@ -87,8 +148,8 @@ export const brandConfig: BrandConfig = {
       footer: {
         copyright: "© 2026 BatiPro. Tous droits réservés.",
         socials: [
-          { icon: "Instagram", url: "#" },
-          { icon: "Facebook", url: "https://www.facebook.com/profile.php?id=61573165835606" },
+          { icon: "Instagram", url: "#", label: "Instagram" },
+          { icon: "Facebook", url: "https://www.facebook.com/profile.php?id=61573165835606", label: "Facebook" },
         ],
       },
     },
@@ -96,6 +157,7 @@ export const brandConfig: BrandConfig = {
       brand: {
         name: "باتي برو",
         tagline: "التميز لمشاريعك ومنزلك.",
+        logoImage: "/logo.png",
       },
       hero: {
         headline: "ابنِ المستقبل",
@@ -109,7 +171,7 @@ export const brandConfig: BrandConfig = {
       ui: {
         categoriesTitle: "أقسامنا",
         productsTitle: "منتجات مميزة",
-        productsLink: "\u2190 عرض الكتالوج الكامل",
+        productsLink: "← عرض الكتالوج الكامل",
         partnersTitle: "شركاؤنا في النجاح",
         teamTitle: "فريقنا في خدمتك",
         teamSubtitle: "هل تحتاج إلى نصيحة فنية أو عرض أسعار مخصص؟ اتصل بخبرائنا مباشرة.",
@@ -120,19 +182,28 @@ export const brandConfig: BrandConfig = {
         securePayment: "دفع آمن",
         fastDelivery: "توصيل خلال 24/48 ساعة",
       },
+      contact: {
+        title: "تواصل معنا",
+        description: "فريقنا جاهز للإجابة على أسئلتك وتقديم النصح والاستشارة.",
+        formPlaceholder: {
+          name: "اسمك",
+          email: "بريدك الإلكتروني",
+          message: "رسالتك",
+        },
+      },
       categories: [
-        { id: 1, label: "البناء والمواد", icon: "BrickWall", image: "https://picsum.photos/seed/bricks/400/300" },
-        { id: 2, label: "الأدوات الصحية والسباكة", icon: "Bath", image: "https://picsum.photos/seed/bathroom/400/300" },
-        { id: 3, label: "السيراميك والأرضيات", icon: "Layers", image: "https://picsum.photos/seed/tiles/400/300" },
-        { id: 4, label: "الخردوات والأدوات", icon: "Wrench", image: "https://picsum.photos/seed/tools/400/300" },
-        { id: 5, label: "معدات المنزل", icon: "Home", image: "https://picsum.photos/seed/homeeq/400/300" },
-        { id: 6, label: "الكهرباء", icon: "Zap", image: "https://picsum.photos/seed/electric/400/300" },
+        { id: 1, label: "البناء والمواد", icon: "BrickWall", image: "https://picsum.photos/seed/bricks/400/300", productIds: [4] },
+        { id: 2, label: "الأدوات الصحية والسباكة", icon: "Bath", image: "https://picsum.photos/seed/bathroom/400/300", productIds: [3] },
+        { id: 3, label: "السيراميك والأرضيات", icon: "Layers", image: "https://picsum.photos/seed/tiles/400/300", productIds: [2] },
+        { id: 4, label: "الخردوات والأدوات", icon: "Wrench", image: "https://picsum.photos/seed/tools/400/300", productIds: [1] },
+        { id: 5, label: "معدات المنزل", icon: "Home", image: "https://picsum.photos/seed/homeeq/400/300", productIds: [] },
+        { id: 6, label: "الكهرباء", icon: "Zap", image: "https://picsum.photos/seed/electric/400/300", productIds: [] },
       ],
       featuredProducts: [
-        { id: 1, name: "مثقاب مطرقي احترافي 18 فولت", price: "189.99€", badge: "تخفيض", rating: 4.8, image: "https://picsum.photos/seed/drill/400/400" },
-        { id: 2, name: "سيراميك بتأثير الرخام 60x60", price: "24.50€ / m²", badge: "شائع", rating: 4.9, image: "https://picsum.photos/seed/marble/400/400" },
-        { id: 3, name: "خلاط حوض بتصميم أسود", price: "85.00€", badge: null, rating: 4.5, image: "https://picsum.photos/seed/faucet/400/400" },
-        { id: 4, name: "أسمنت بورتلاند 35 كجم", price: "7.50€", badge: "أساسي", rating: 4.7, image: "https://picsum.photos/seed/cement/400/400" },
+        { id: 1, name: "مثقاب مطرقي احترافي 18 فولت", price: "189.99€", badge: "تخفيض", rating: 4.8, image: "https://picsum.photos/seed/drill/400/400", categoryId: 4 },
+        { id: 2, name: "سيراميك بتأثير الرخام 60x60", price: "24.50€ / m²", badge: "شائع", rating: 4.9, image: "https://picsum.photos/seed/marble/400/400", categoryId: 3 },
+        { id: 3, name: "خلاط حوض بتصميم أسود", price: "85.00€", badge: null, rating: 4.5, image: "https://picsum.photos/seed/faucet/400/400", categoryId: 2 },
+        { id: 4, name: "أسمنت بورتلاند 35 كجم", price: "7.50€", badge: "أساسي", rating: 4.7, image: "https://picsum.photos/seed/cement/400/400", categoryId: 1 },
       ],
       stats: [
         { value: "+15K", label: "محترف يثقون بنا" },
@@ -161,8 +232,8 @@ export const brandConfig: BrandConfig = {
       footer: {
         copyright: "© 2026 باتي برو. جميع الحقوق محفوظة.",
         socials: [
-          { icon: "Instagram", url: "#" },
-          { icon: "Facebook", url: "https://www.facebook.com/profile.php?id=61573165835606" },
+          { icon: "Instagram", url: "#", label: "Instagram" },
+          { icon: "Facebook", url: "https://www.facebook.com/profile.php?id=61573165835606", label: "Facebook" },
         ],
       },
     }

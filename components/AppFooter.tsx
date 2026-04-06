@@ -1,9 +1,11 @@
 'use client';
-import { Hammer, Twitter, Instagram, Facebook, MapPin, Phone, Mail } from 'lucide-react';
+import { Hammer, Instagram, Facebook, MapPin, Phone, Mail } from 'lucide-react';
 import { useLanguage } from '@/app/context/LanguageContext';
+import { brandConfig } from '@/app/config/brand';
 
 export default function AppFooter() {
   const { t, dir } = useLanguage();
+  const { contact } = brandConfig;
 
   return (
     <footer id="footer" className="bg-[var(--color-dark)] text-gray-300 pt-16 pb-8">
@@ -20,15 +22,22 @@ export default function AppFooter() {
               </span>
             </div>
             <p className="text-gray-400 mb-6">
-              {t.brand.tagline} {t.ui.contactUs}
+              {t.brand.tagline}
             </p>
             <div className="flex gap-4">
-              <a href={t.footer.socials[0].url} className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-[var(--color-primary)] hover:text-white transition-colors">
-                <Instagram size={18} />
-              </a>
-              <a href={t.footer.socials[1].url} className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-[var(--color-primary)] hover:text-white transition-colors">
-                <Facebook size={18} />
-              </a>
+              {t.footer.socials.map((social, idx) => {
+                const Icon = social.icon === 'Instagram' ? Instagram : Facebook;
+                return (
+                  <a 
+                    key={idx}
+                    href={social.url} 
+                    className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-[var(--color-primary)] hover:text-white transition-colors"
+                    title={social.label}
+                  >
+                    <Icon size={18} />
+                  </a>
+                );
+              })}
             </div>
           </div>
 
@@ -60,21 +69,21 @@ export default function AppFooter() {
             </ul>
           </div>
 
-          {/* Contact */}
+          {/* Contact - From centralized brand config */}
           <div>
             <h3 className="text-white font-bold text-lg mb-6">{t.ui.contactUs}</h3>
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
                 <MapPin className="text-[var(--color-primary)] shrink-0 mt-1" size={20} />
-                <span>123 Zone Industrielle,<br />75000 Paris, France</span>
+                <span>{contact.address}<br />{contact.zipCode} {contact.city}, {contact.country}</span>
               </li>
               <li className="flex items-center gap-3" dir="ltr">
                 <Phone className={`text-[var(--color-primary)] shrink-0 ${dir === 'rtl' ? 'ml-3' : ''}`} size={20} />
-                <span>+33 1 23 45 67 89</span>
+                <span>{contact.phone}</span>
               </li>
               <li className="flex items-center gap-3" dir="ltr">
                 <Mail className={`text-[var(--color-primary)] shrink-0 ${dir === 'rtl' ? 'ml-3' : ''}`} size={20} />
-                <span>contact@batipro.fr</span>
+                <span>{contact.email}</span>
               </li>
             </ul>
           </div>

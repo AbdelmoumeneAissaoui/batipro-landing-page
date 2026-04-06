@@ -1,6 +1,27 @@
 // Types pour la configuration de la marque et les données i18n
 
 export interface BrandConfig {
+  // Metadata du site
+  siteMetadata: {
+    title: string;
+    description: string;
+    favicon?: string;
+    ogImage?: string;
+    locale?: string;
+  };
+  
+  // Informations de contact globales
+  contact: {
+    email: string;
+    phone: string;
+    address: string;
+    city: string;
+    country: string;
+    zipCode: string;
+    hours?: string;
+  };
+  
+  // Couleurs du design
   colors: {
     primary: string;
     secondary: string;
@@ -10,6 +31,8 @@ export interface BrandConfig {
     textPrimary: string;
     textMuted: string;
   };
+  
+  // Sections à afficher/masquer
   sections: {
     showHero: boolean;
     showStats: boolean;
@@ -20,6 +43,8 @@ export interface BrandConfig {
     showNewsletterBanner: boolean;
     showFooter: boolean;
   };
+  
+  // Configurations i18n (multilingue)
   i18n: {
     fr: Translation;
     ar: Translation;
@@ -30,6 +55,7 @@ export interface Translation {
   brand: {
     name: string;
     tagline: string;
+    logoImage?: string;
   };
   hero: {
     headline: string;
@@ -54,13 +80,22 @@ export interface Translation {
     securePayment?: string;
     fastDelivery?: string;
   };
+  contact: {
+    title: string;
+    description: string;
+    formPlaceholder: {
+      name: string;
+      email: string;
+      message: string;
+    };
+  };
+  footer: FooterTranslation;
   categories: Category[];
   featuredProducts: Product[];
   stats: Stat[];
   partners: Partner[];
   team: TeamMember[];
   navLinks: NavLink[];
-  footer: Footer;
 }
 
 export interface Category {
@@ -111,9 +146,16 @@ export interface Footer {
   socials: SocialLink[];
 }
 
+export interface FooterTranslation {
+  copyright: string;
+  socials: SocialLink[];
+  links?: NavLink[];
+}
+
 export interface SocialLink {
   icon: string;
   url: string;
+  label?: string;
 }
 
 export type Language = 'fr' | 'ar';
