@@ -45,15 +45,6 @@ export const brandConfig: BrandConfig = {
     textMuted: "#0046a8",
   },
   // 🎨 Palette de couleurs
-  colors: {
-    primary: "#003CE8",
-    secondary: "#1e293b",
-    accent: "#bd3b07",
-    dark: "#0f172a",
-    surface: "#ffffff",
-    textPrimary: "#0f172a",
-    textMuted: "#0046a8",
-  },
 
   // 👁️ Sections à afficher/masquer
   sections: {
